@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUST FOR DESIN ALBUM</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
+body{background:#0b0c20;color:#fff;overflow-x:hidden;}
+
+/* HERO */
+header{
+  height:80vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#1a1b2a,#0b0c20);
+  position:relative;
+}
+header h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:4rem;
+  color:#0ff;
+  text-shadow:0 0 20px #0ff,0 0 40px #8af;
+}
+header p{
+  font-size:1.2rem;
+  opacity:0.8;
+  margin-top:15px;
+  color:#0ff;
+}
+header button{
+  margin-top:30px;
+  padding:14px 40px;
+  background:rgba(0,255,255,0.1);
+  border:2px solid #0ff;
+  border-radius:40px;
+  color:#0ff;
+  cursor:pointer;
+  font-weight:600;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+header button:hover{
+  background:#0ff;color:#0b0c20;transform:scale(1.05);
+}
+
+/* ALBUM GRID */
+.albums{
+  padding:80px 10%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.album-card{
+  background:rgba(0,255,255,0.05);
+  border:1px solid rgba(0,255,255,0.3);
+  border-radius:20px;
+  backdrop-filter:blur(15px);
+  overflow:hidden;
+  transition:0.5s;
+  cursor:pointer;
+  position:relative;
+}
+.album-card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 30px #0ff,0 0 60px #8af;
+}
+.album-card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:20px 20px 0 0;
+}
+.album-card .info{
+  padding:15px 20px;
+  text-align:center;
+  position:relative;
+}
+.album-card .info h3{
+  font-family:'Orbitron',sans-serif;
+  font-size:1.4rem;
+  color:#0ff;
+  margin-bottom:5px;
+}
+.album-card .status{
+  position:absolute;
+  top:10px; right:10px;
+  background:#0ff;
+  color:#0b0c20;
+  font-size:0.8rem;
+  padding:5px 10px;
+  border-radius:10px;
+  font-weight:600;
+}
+
+/* OFFER SECTION */
+.offer{
+  background: linear-gradient(135deg,#0ff,#8af);
+  color:#0b0c20;
+  max-width:700px;
+  margin:50px auto;
+  padding:60px 30px;
+  text-align:center;
+  border-radius:20px;
+  box-shadow:0 0 30px #0ff,0 0 50px #8af;
+}
+.offer h2{font-family:'Orbitron',sans-serif;font-size:2.5rem;margin-bottom:15px;color:#0b0c20;}
+.offer h3{font-size:2rem;margin:10px 0;}
+.offer p{font-size:1.1rem;margin-bottom:10px;opacity:0.9;}
+.offer span{font-weight:600;color:#fff;}
+.offer button{
+  padding:14px 40px;
+  background:#0b0c20;color:#0ff;
+  border:none;border-radius:40px;
+  font-size:1.1rem;cursor:pointer;font-weight:600;
+  transition:0.3s;
+}
+.offer button:hover{background:#111;transform:scale(1.05);}
+
+/* BOOK SLOT FORM */
+.book-slot{
+  background: rgba(0,255,255,0.05);
+  border:1px solid rgba(0,255,255,0.3);
+  backdrop-filter:blur(15px);
+  max-width:600px;
+  margin:50px auto;
+  padding:40px;
+  border-radius:20px;
+}
+.book-slot h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:2rem;
+  text-align:center;
+  color:#0ff;
+  margin-bottom:20px;
+}
+.book-slot form{
+  display:flex;
+  flex-direction:column;
+}
+.book-slot input, .book-slot select, .book-slot textarea{
+  padding:12px 15px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  font-size:1rem;
+}
+.book-slot .radio-group{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+.book-slot .radio-group label{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  cursor:pointer;
+}
+.book-slot button{
+  padding:14px 0;
+  background:#0ff;
+  color:#0b0c20;
+  font-weight:600;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  font-size:1.1rem;
+  transition:0.3s;
+}
+.book-slot button:hover{
+  background:#8af;
+}
+
+/* WORK HISTORY */
+.history{
+  padding:80px 10%;
+}
+.history h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:2.5rem;
+  margin-bottom:40px;
+  color:#0ff;
+  text-align:center;
+}
+.history-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.history-card{
+  background:rgba(0,255,255,0.05);
+  border:1px solid rgba(0,255,255,0.3);
+  border-radius:20px;
+  padding:20px;
+  text-align:center;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+.history-card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #0ff,0 0 40px #8af;
+}
+.history-card h3{
+  font-family:'Orbitron',sans-serif;
+  margin-bottom:10px;
+  color:#0ff;
+}
+.history-card p{opacity:0.8;}
+
+/* REVIEWS */
+.reviews{
+  padding:80px 10%;
+  background:rgba(0,255,255,0.05);
+  border-top:1px solid rgba(0,255,255,0.2);
+  border-bottom:1px solid rgba(0,255,255,0.2);
+}
+.reviews h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:2.5rem;
+  margin-bottom:40px;
+  color:#0ff;
+  text-align:center;
+}
+.review-card{
+  background:rgba(0,255,255,0.05);
+  border:1px solid rgba(0,255,255,0.3);
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:20px;
+  text-align:center;
+  backdrop-filter:blur(10px);
+}
+.review-card p{opacity:0.8;margin-bottom:10px;}
+.review-card h4{color:#0ff;font-family:'Orbitron',sans-serif;font-size:1.2rem;}
+
+/* ABOUT */
+.about{
+  padding:80px 10%;
+  text-align:center;
+}
+.about h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:2.5rem;
+  margin-bottom:20px;
+  color:#0ff;
+}
+.about p{
+  font-size:1.1rem;
+  opacity:0.8;
+  line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:0.9rem;
+  color:#0ff;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){header h1{font-size:3rem;}}
+@media(max-width:600px){.album-card img{height:220px;}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header>
+  <h1>JUST FOR DESIN ALBUM</h1>
+  <p>JUST FOR DESIN ALBUM  12-Hours</p>
+  <button onclick="document.querySelector('.albums').scrollIntoView({behavior:'smooth'})">Explore Albums</button>
+</header>
+
+<!-- ALBUMS -->
+<section class="albums">
+  <div class="album-card">
+    <img src="images.jpeg">
+    <div class="info">
+      <h3>Wedding Album</h3>
+      <span class="status"></span>
+    </div>
+  </div>
+  <div class="album-card">
+    <img src="https://picsum.photos/400/400?2">
+    <div class="info">
+      <h3>Baby Album</h3>
+      <span class="status">In Progress</span>
+    </div>
+  </div>
+  <div class="album-card">
+    <img src="https://picsum.photos/400/400?3">
+    <div class="info">
+      <h3>Travel Album</h3>
+      <span class="status">Completed</span>
+    </div>
+  </div>
+  <div class="album-card">
+    <img src="images (1).jpeg">
+    <div class="info">
+      <h3>Pre-Wedding Album</h3>
+      <span class="status">In Progress</span>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer">
+  <h2>🎨 Album Design Offer</h2>
+  <p>Design 4 Albums and Get 1 Album Design <strong>FREE</strong></p>
+  <h3>💰 Only ₹30 per sheet</h3>
+  <p><span>🔥 12-Hours Design Completion Available!</span></p>
+  <p>Manual Album Design with premium quality for your memories</p>
+  <button onclick="window.location.href='https://wa.me/8521500173'">Order Now via WhatsApp</button>
+</section>
+
+<!-- BOOK SLOT FORM -->
+<section class="book-slot">
+  <h2>📅 Book Your Album Slot</h2>
+  <form onsubmit="bookSlot(event)">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+    <input type="date" name="date" required>
+    <input type="time" name="time" required>
+    <select name="album" required>
+      <option value="" disabled selected>Select Album Type</option>
+      <option value="Wedding">Wedding Album</option>
+      <option value="Baby">Baby Album</option>
+      <option value="Travel">Travel Album</option>
+      <option value="Pre-Wedding">Pre-Wedding Album</option>
+    </select>
+    <div class="radio-group">
+      <label><input type="radio" name="fast" value="Normal" checked> Normal</label>
+      <label><input type="radio" name="fast" value="12-Hours"> 12-Hours Completion</label>
+    </div>
+    <button type="submit">Book Slot</button>
+  </form>
+</section>
+
+<!-- WORK HISTORY -->
+<section class="history">
+  <h2>🖼 Work History</h2>
+  <div class="history-cards">
+    <div class="history-card"><h3>Wedding Album</h3><p>Completed 500+ projects with premium designs</p></div>
+    <div class="history-card"><h3>Baby Album</h3><p>Handcrafted albums capturing precious moments</p></div>
+    <div class="history-card"><h3>Travel Album</h3><p>Colorful travel memories designed with love</p></div>
+    <div class="history-card"><h3>Pre-Wedding Album</h3><p>Romantic story-telling album projects</p></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <h2>⭐ Reviews</h2>
+  <div id="review-list">
+    <div class="review-card">
+      <p>"Amazing quality and fast delivery! Loved the holographic design."</p>
+      <h4>– Priya Sharma</h4>
+    </div>
+    <div class="review-card">
+      <p>"JUST FOR DESIN ALBUM made our wedding album look magical!"</p>
+      <h4>– Rohit </h4>
+    </div>
+  </div>
+
+  <!-- Submit Review Form -->
+  <div class="book-slot" style="margin-top:30px;">
+    <h2>💬 Submit Your Review</h2>
+    <form id="review-form">
+      <input type="text" id="reviewer-name" placeholder="Your Name" required>
+      <textarea id="review-text" placeholder="Write your review here..." rows="4" required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <h2>About JUST FOR DESIN ALBUM</h2>
+  <p>JUST FOR DESIN ALBUM creates holographic, futuristic album designs inspired by JUST FOR DESIN ALBUM dashboards. Every album is visually striking with interactive glow effects and modern style.</p>
+</section>
+
+<!-- FOOTER -->
+<footer> 2025 JUST FOR DESIN ALBUM | All Rights Reserved</footer>
+
+<script>
+function bookSlot(e){
+  e.preventDefault();
+  const form = e.target;
+  const name = form.name.value;
+  const email = form.email.value;
+  const whatsapp = form.whatsapp.value;
+  const date = form.date.value;
+  const time = form.time.value;
+  const album = form.album.value;
+  const fast = form.fast.value;
+
+  const message = `Hello, I want to book a slot for album design.\n\nName: ${name}\nEmail: ${email}\nWhatsApp: ${whatsapp}\nAlbum Type: ${album}\nDate: ${date}\nTime: ${time}\nDesign Option: ${fast}`;
+  
+  const whatsappURL = `https://wa.me/8521500173?text=${encodeURIComponent(message)}`;
+  window.open(whatsappURL,'_blank');
+}
+
+// Submit Review
+document.getElementById('review-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('reviewer-name').value;
+  const text = document.getElementById('review-text').value;
+
+  if(name && text){
+    const reviewList = document.getElementById('review-list');
+    const newReview = document.createElement('div');
+    newReview.className = 'review-card';
+    newReview.innerHTML = `<p>"${text}"</p><h4>– ${name}</h4>`;
+    reviewList.prepend(newReview);
+
+    document.getElementById('reviewer-name').value = '';
+    document.getElementById('review-text').value = '';
+
+    alert('Thank you for your review!');
+  }
+});
+</script>
+
+</body>
+</html>
